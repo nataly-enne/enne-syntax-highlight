@@ -1,0 +1,25 @@
+{
+    "name": "enne",
+    "displayName": "ENNE",
+    "description": "Enne Programming Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "enne",
+            "aliases": ["ENNE", "enne"],
+            "extensions": [".enne"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "enne",
+            "scopeName": "source.enne",
+            "path": "./syntaxes/enne.tmLanguage.json"
+        }]
+    }
+}

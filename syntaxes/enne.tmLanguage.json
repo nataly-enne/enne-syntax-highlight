@@ -1,0 +1,107 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ENNE",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "declarations"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+				"name": "keyword.control.enne",
+				"match": "\\b(if|while|for|return|int|float)\\b"
+			},
+			{
+				"match": "(==?|!=|<=|>=|<|>)",
+				"name": "keyword.operator.comparison.enne"
+			},
+			{
+				"match": "(\\+|\\*|/(?![/*])|%|~)",
+				"name": "keyword.operator.arithmetic.enne"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.enne",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.enne",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+				"name": "comment.line.double-dash.sql",
+				"begin": "--",
+				"end": "\n"
+
+				},
+				{
+				"name":"comment.block.sql",
+				"begin": "\/[*]",
+				"end": "[*](\/)"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.character",
+					"match": "(<|>|=|!)"
+				},
+
+				{
+                    "match": "\\b(false|null|true)\\b",
+                    "name": "constant.language.enne"
+                },
+                {
+                    "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
+                    "name": "constant.numeric.enne"
+                },
+                {
+                    "match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
+                    "name": "constant.numeric.enne"
+                },
+                {
+                    "match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
+                    "name": "constant.numeric.enne"
+                }
+			]
+		},
+		"declarations": {
+			"patterns": [
+				{
+					"match": "\\b(func)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.declaration.enne"
+                        },
+                        "2": {
+                            "name": "entity.name.function.declaration"
+                        }
+                    }
+                }
+			]
+		}
+		
+	},
+	"scopeName": "source.enne"
+}
